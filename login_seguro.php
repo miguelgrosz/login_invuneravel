@@ -23,13 +23,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $senha = $_POST["senha"];
 
     // VULNERÁVEL: concatena entrada do usuário diretamente no SQL.
-    $sql = "SELECT * FROM usuarios WHERE email = '$email' AND senha = '$senha'";
-    
-    
+    $sql = "SELECT * FROM usuarios WHERE email = ? AND senha = ?";
+
+    $stmt = $conn->prepare($sql);
+
+    $stmt->bind_param("ss", $email, $senha);
+
+    $stmt->execute();
+
+    $resultado = $stmt->get_result();
 
     echo "<h3>SQL gerado:</h3><pre class='codigo'>" . htmlspecialchars($sql) . "</pre>";
 
-    $resultado = $conn->query($sql);
+    #$resultado = $conn->query($sql);
 
     if ($resultado && $resultado->num_rows > 0) {
         $usuario = $resultado->fetch_assoc();

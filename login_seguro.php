@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="container">
-    <h1>Login Vulnerável</h1>
+    <h1>Login Seguro</h1>
     <p><a href="index.php">Voltar</a></p>
 
     <form method="POST">

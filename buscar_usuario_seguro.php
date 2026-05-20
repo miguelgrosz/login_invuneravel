@@ -3,7 +3,7 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Buscar Usuário Vulnerável</title>
+    <title>Buscar Usuário Seguro</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
